@@ -28,7 +28,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "border-b bg-paper/90 backdrop-blur-md" : "bg-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "border-b bg-paper/90 backdrop-blur-md" : "bg-paper/60 backdrop-blur-sm"}`}>
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
         <Link to="/" className="flex items-baseline gap-2" aria-label="PARESH Stationery Mart home">
           <span className="font-display text-2xl font-bold tracking-tighter text-ink">PARESH</span>
