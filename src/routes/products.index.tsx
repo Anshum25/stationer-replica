@@ -4,13 +4,13 @@ import { CATEGORIES, PRODUCTS, type CategorySlug } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PageIntro } from "@/components/site/PageIntro";
 
-type S = { category?: CategorySlug; q?: string; sort?: "az" | "za" };
+type S = { category?: CategorySlug | undefined; q?: string | undefined; sort?: "az" | "za" | undefined };
 
 export const Route = createFileRoute("/products/")({
   validateSearch: (s: Record<string, unknown>): S => ({
-    category: CATEGORIES.some((c) => c.slug === s.category) ? (s.category as CategorySlug) : undefined,
-    q: typeof s.q === "string" && s.q ? s.q.slice(0, 80) : undefined,
-    sort: s.sort === "za" ? "za" : s.sort === "az" ? "az" : undefined,
+    category: CATEGORIES.some((c) => c.slug === s["category"]) ? (s["category"] as CategorySlug) : undefined,
+    q: typeof s["q"] === "string" && s["q"] ? s["q"].slice(0, 80) : undefined,
+    sort: s["sort"] === "za" ? "za" : s["sort"] === "az" ? "az" : undefined,
   }),
   head: () => ({
     meta: [
